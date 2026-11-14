@@ -1,0 +1,232 @@
+Idol Showdown Access 1.1.0
+==========================
+
+Barrierefreiheits-Mod für Idol Showdown: gesprochene Menüs, Charakterauswahl,
+Gegnerortung per Ton, Warntöne bei kritischer Gesundheit und vorgelesene
+Einblendungen. Für blinde Spielerinnen und Spieler, mit Controller oder Tastatur.
+English instructions: IdolShowdownAccess_README.txt
+
+
+NEU IN VERSION 1.1.0
+--------------------
+- Strg allein unterbricht jetzt immer die Sprache, auch im Mod-Menü und mit
+  laufendem JAWS. Am Controller lässt sich dafür eine Taste wählen.
+- Neue Tastenbelegung: F2 Details, F5 Kampfstatus, F6 Gegnerposition,
+  F9 Wiederholen, F10 Sprache stoppen, F11 Mod-Menü (vorher F5).
+- Das Mod-Menü hat jetzt Untermenüs: Sprache und Stimme, Vorlesen, Kampf und
+  Gegner, Töne und Lautstärke, Steuerung, Erweitert. Dazu "Speichern und
+  schließen", "Verwerfen", "Donation" und "Accessibility Mods by Grybyx".
+  B geht eine Ebene zurück, Y erklärt den Eintrag, F11 speichert.
+- Einträge mit Ton spielen ihren Ton nach der Ansage vor. "Alle Töne
+  vorspielen" erklärt jeden Ton einzeln.
+- Warnton bei Geschossen des Gegners, von seiner Seite (neu, noch ungetestet).
+- Ortungstöne starten erst, wenn der Kampf freigegeben ist, und enden mit der
+  Runde.
+- "Bijou gegen Fubuki. Runde 1" kommt jetzt in der richtigen Reihenfolge.
+- Sieg und Niederlage werden an den Siegzählern des Spiels geprüft.
+- "Super bereit" und "Burst bereit" kommen nicht mehr bei jedem Rundenbeginn.
+- Beim Spielstart kein falsches "Pause" mehr vor dem ersten Menüpunkt.
+- F11 im laufenden Kampf (offline) pausiert das Spiel und öffnet das Mod-Menü.
+- Spielsprache gewechselt: Der Mod sagt es an und nennt fehlende Stimmen.
+- Ducking getrennt für Sprache (an) und Töne (aus); eingestellt wird jetzt die
+  Lautstärke des Spiels beim Sprechen (Standard 60 Prozent).
+- Eigenes Protokoll IdolShowdownAccess.log mit vorherigem Log, Stimmenliste in
+  IdolShowdownAccessVoices.txt, Datensammler für Fehlerberichte.
+- Die Versionsnummer wird beim Start angesagt.
+- Nach diesem Update öffnet sich das Mod-Menü einmal von selbst.
+
+
+INSTALLATION
+------------
+1. Öffne den Spielordner von Idol Showdown.
+   In Steam: Rechtsklick auf Idol Showdown, Verwalten, Lokale Dateien durchsuchen.
+   Dort liegt die Datei IdolShowdown.exe.
+2. Entpacke den kompletten Inhalt dieses ZIP-Archivs in genau diesen Ordner.
+   Wenn Windows fragt, ob Dateien ersetzt werden sollen: Ja.
+3. Starte im Spielordner IdolShowdownAccess_Installieren.bat.
+   Sie lädt einmalig zwei kleine ZIP-Dateien von unity.bepinex.dev: die
+   vollständigen .NET- und Unity-Bibliotheken. Das Spiel bringt gekürzte
+   Bibliotheken mit; ohne die vollständigen bleibt es mit dem Mod beim
+   Epilepsie-Warnhinweis hängen. Am Ende: "Installation abgeschlossen".
+   Nach jedem Update erneut ausführen.
+4. Starte Idol Showdown wie gewohnt über Steam. Beim Laden sagt der Mod
+   "Idol Showdown Access 1.1.0 geladen".
+
+Falls der Download nicht klappt, lade diese zwei Dateien selbst herunter:
+  https://unity.bepinex.dev/corlibs/2020.3.49.zip
+  https://unity.bepinex.dev/libraries/2020.3.49.zip
+Aus der ersten alle DLL-Dateien, aus der zweiten nur UnityEngine.dll und die
+Dateien UnityEngine.<Name>Module.dll in den Ordner unstripped_corlib im
+Spielordner entpacken.
+
+Voraussetzung für die Sprache: mindestens eine 32-Bit-SAPI-Stimme (z. B.
+Microsoft Hedda Desktop für Deutsch, Microsoft David oder Zira Desktop für
+Englisch). Die sind bei Windows dabei.
+
+
+SPRACHE UND STIMME
+------------------
+Alle Ansagen kommen über die 32-Bit-Windows-Sprachausgabe (SAPI), unabhängig
+von deinem Screenreader. Dafür läuft der kleine Helfer ISAccessSapi32.exe im
+Hintergrund, weil das 64-Bit-Spiel die 32-Bit-Stimmen nicht selbst laden kann.
+Im Mod-Menü lässt sich auf Ausgabe über den Screenreader (NVDA, JAWS)
+umstellen.
+
+Der Mod spricht die Sprache des Spiels: Läuft es auf Englisch, sind Ansagen
+und Mod-Menü englisch und eine englische Stimme spricht. Deutsch gibt es, wenn
+das Spiel auf Deutsch läuft. Im Mod-Menü lässt sich die Sprache fest wählen.
+Unter "Stimme für <Sprache>" wählst du die Stimme; sie wird je Sprache gemerkt.
+
+Eine neue Ansage, etwa ein neu angewählter Menüpunkt, unterbricht immer die
+vorherige. Strg allein bricht jede Ansage ab.
+
+Audio-Ducking: Solange der Mod spricht, wird das Spiel leiser (Standard auf
+60 Prozent) und danach sanft wieder lauter. Die Mod-Töne bleiben laut.
+
+
+DAS MOD-MENÜ
+------------
+Öffnen: F11 oder am Controller die Ansicht-Taste gedrückt halten. Im
+laufenden Offline-Kampf pausiert der Mod dabei das Spiel. Beim ersten Start
+und nach Updates mit neuen Einträgen öffnet es sich einmal von selbst.
+
+  Hoch / Runter          Eintrag wählen (Controller auch LB / RB)
+  Links / Rechts         Wert ändern (Controller auch X für weniger)
+  Eingabe, Leertaste, A  Umschalten, auslösen, Untermenü öffnen
+  Rücktaste, Escape, B   Eine Ebene zurück; auf der Hauptebene verwerfen
+  F1 oder Y              Eintrag erklären
+  F11                    Speichern und schließen
+  Pos1 / Ende            Erster / letzter Eintrag
+  Strg                   Sprache stoppen
+
+Hauptebene:
+- Mod aktiv
+- Sprache und Stimme: Sprache des Mods, Sprachausgabe, Stimme für die aktuelle
+  Sprache, Sprechtempo, Lautstärke der Stimme, Ducking bei Sprache, Ducking bei
+  Tönen, Spiel-Lautstärke beim Ducking
+- Vorlesen: Sprechende Menüs, Position im Menü, Beschreibungen und
+  Fenstertexte, Charakterauswahl mit springendem Cursor, Dialoge, Tutorial und
+  Hinweise
+- Kampf und Gegner: Gegnerortung, Seitenwechsel, Ecke, Geschosse,
+  Unverwundbarkeit, großer Schaden (ab Prozent), Gesundheitswarnungen und
+  Herzschlag (ab Prozent), Gegner-Gesundheit, Kampfansagen, Super/Burst/Kollab
+  bereit, deine Seite im lokalen Versus
+- Töne und Lautstärke: Lautstärke der Mod-Töne, Töne im Menü vorspielen, Alle
+  Töne vorspielen
+- Steuerung: Controller-Kürzel, Tasten für Status, Gegnerposition,
+  Wiederholen und Sprache stoppen (mit Xbox- und PlayStation-Namen),
+  Tastenbelegung anhören
+- Erweitert: Menü bei jedem Start öffnen, Ausführliches Protokoll
+- Donation: öffnet https://buymeacoffee.com/blindretrogamer/
+- Accessibility Mods by Grybyx: öffnet https://github.com/grybyx/
+- Speichern und schließen
+- Verwerfen: stellt alle Werte auf den Stand beim Öffnen zurück
+
+
+TASTEN IM SPIEL
+---------------
+Tastatur:
+  Strg   Sprache unterbrechen (immer, auch mit JAWS)
+  F1     Hilfe
+  F2     Details: Infos und Werte zur Figur in der Charakterauswahl, im Menü
+         der Eintrag mit Beschreibung, im Tutorial die aktuelle Aufgabe
+  F5     Kampfstatus: deine Gesundheit, Gegner, Zeit, Runden, Super, Burst,
+         Kollab
+  F6     Gegnerposition: links oder rechts, Entfernung, Luft oder Boden, Ecke
+  F7     Ortungston an oder aus
+  F8     ganzen Mod an oder aus
+  F9     letzte Ansage wiederholen
+  F10    Sprache stoppen
+  F11    Mod-Menü
+
+Controller (Xbox-Namen, PlayStation in Klammern; im Mod-Menü änderbar):
+  Ansicht (Share) kurz      im Kampf Kampfstatus, sonst Details
+  Ansicht (Share) halten    Mod-Menü
+  Linken Stick drücken (L3) im Kampf Gegnerposition, sonst Wiederholen
+  Rechten Stick drücken (R3) letzte Ansage wiederholen
+  Sprache stoppen           standardmäßig aus, im Mod-Menü wählbar
+
+
+CHARAKTERAUSWAHL
+----------------
+Der freie Zeiger des Spiels rastet ein: Jeder Richtungsdruck springt zur
+nächsten Figur oder Schaltfläche, ihr Name wird angesagt. Am Rand kommt ein
+kurzer tiefer Ton. Bestätigen wählt. Danach: Kostüm (Hoch/Runter, Links/Rechts
+blättert), Kollab-Partner (Hoch/Runter), dann "Bereit" mit Figur und Partner.
+F2 oder Ansicht-Taste: Beschreibung und Werte der Figur.
+
+
+TÖNE IM KAMPF
+-------------
+Alle Töne starten erst, wenn der Kampf freigegeben ist ("Go").
+- Gegner am Boden: runder Plopp aus seiner Richtung. Je näher, desto schneller.
+- Gegner in der Luft: heller, nach oben gleitender Klang.
+- Gegner direkt bei dir: raues Schnarren aus der Mitte.
+- Seitenwechsel: Rauschen wandert zur neuen Seite des Gegners.
+- Ecke: zweimal dumpfes Klopfen auf der Seite der Wand.
+- Geschoss des Gegners: zwei harte, kurze Töne von seiner Seite.
+- Du bist unverwundbar: zwei helle Glockentöne; Ende: leiser Ton abwärts.
+  Super-Rüstung: metallisches Kling.
+- Großer Schaden in einer Trefferserie (Standard ab 15 Prozent): tiefer
+  Einschlag, danach z. B. "Minus 23 Prozent".
+- Kritische Gesundheit (Standard unter 25 Prozent): Herzschlag, unter
+  10 Prozent schneller.
+Ansagen: "Bijou gegen Fubuki. Runde 1", Runde gewonnen oder verloren mit
+Stand, Sieg oder Niederlage, noch 30 und 10 Sekunden, Hälfte deiner
+Gesundheit, Gesundheit kritisch, Gegner unter der Hälfte, Super bereit,
+Burst bereit, Kollab-Ruf bereit, Off-Kollab bereit.
+Im Mod-Menü unter "Töne und Lautstärke, Alle Töne vorspielen" hörst du alle
+Töne mit Erklärung.
+
+
+KOLLAB-PARTNER IM KAMPF
+-----------------------
+- Kollab-Ruf: Vorwärts halten und Kollab-Taste. Kostet Super-Leiste.
+- Off-Kollab: Kollab-Taste allein. Kostet die bunte Superchat-Leiste.
+In Treffer- oder Blockstarre geht beides nicht. F5 sagt, was bereit ist.
+
+
+FEHLER MELDEN
+-------------
+1. Im Mod-Menü unter "Erweitert" das ausführliche Protokoll einschalten.
+2. Spielen, bis der Fehler auftritt. Uhrzeit merken.
+3. Spiel beenden und IdolShowdownAccess_Daten_sammeln.bat im Spielordner
+   starten. Sie legt eine ZIP mit Datum und Uhrzeit auf den Desktop.
+4. Die ZIP mit einem Satz zum Fehler schicken.
+
+
+PROBLEME
+--------
+Spiel bleibt beim Warnhinweis hängen: Im Ordner unstripped_corlib müssen
+mscorlib.dll und UnityEngine.CoreModule.dll liegen. Sonst den
+Installationshelfer erneut starten.
+Keine Ansage beim Start: Prüfen, ob BepInEx\LogOutput.log entsteht. Fehlt es,
+startet BepInEx nicht (meist fehlt winhttp.dll oder doorstop_config.ini).
+Töne, aber keine Sprache: In IdolShowdownAccessVoices.txt (Pluginordner)
+stehen die gefundenen Stimmen. Ist sie leer, fehlt eine 32-Bit-Stimme. Im
+Mod-Menü kann die Sprachausgabe auf Screenreader umgestellt werden.
+
+
+DEINSTALLATION
+--------------
+Lösche im Spielordner winhttp.dll; dann ist der Mod abgeschaltet. Für eine
+komplette Entfernung zusätzlich doorstop_config.ini, .doorstop_version, die
+Ordner BepInEx und unstripped_corlib sowie die Dateien IdolShowdownAccess_*
+löschen.
+
+
+LINKS
+-----
+Donation:                     https://buymeacoffee.com/blindretrogamer/
+Accessibility Mods by Grybyx: https://github.com/grybyx/
+Quellcode:                    https://github.com/grybyx/Idol-Showdown-Access
+Spiel auf Steam:              https://store.steampowered.com/app/1742020/Idol_Showdown/
+
+
+LIZENZEN
+--------
+Der Mod steht unter der MIT-Lizenz (BepInEx\plugins\IdolShowdownAccess\
+LICENSE.txt). Mitgeliefert werden BepInEx 5.4.23.2 mit HarmonyX, MonoMod und
+Mono.Cecil, Unity Doorstop, Tolk und der NVDA Controller Client; Details in
+THIRD_PARTY_NOTICES.txt und im Ordner licenses daneben. Der Mod ist ein
+Fanprojekt und steht in keiner Verbindung zu den Entwicklern des Spiels.
